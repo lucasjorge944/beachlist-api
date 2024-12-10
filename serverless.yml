@@ -1,0 +1,40 @@
+service: spce-connect
+frameworkVersion: "3"
+configValidationMode: error
+
+provider:
+    name: aws
+    region: us-east-1
+    runtime: nodejs18.x
+    memorySize: 512
+    timeout: 29
+    logRetentionInDays: 7
+    versionFunctions: false
+    tracing:
+        lambda: false
+        apiGateway: false
+    httpApi:
+        id: ${self:custom.API_GATEWAY_ID}
+        metrics: false
+
+functions:
+    - ${file(src/presentation/routes/user-routes.yml)}
+
+custom:
+    ENV: ${env:FUNC_PREFIX, 'sandbox'}
+    FUNCTION_URL: ${env:FUNCTION_URL, 'https://hrgnu9b81f.execute-api.us-east-2.amazonaws.com'}
+    API_GATEWAY_ID: ${env:API_GATEWAY_ID, 'hrgnu9b81f'}
+    MONGO: ${env:MONGO_URI, 'mongodb+srv://adm:Z2J+(Qk<o8zKPhp@refugo.jtbym.mongodb.net/scpe-connect-sandbox?retryWrites=true&w=majority&appName=refugo'}
+    serverless-offline:
+        httpPort: 8085
+        lambdaPort: 8086
+
+plugins:
+    - serverless-plugin-typescript
+    - serverless-offline
+    - serverless-dotenv-plugin
+    - "@shelf/serverless-simplify-default-exec-role-plugin"
+
+package:
+    individually: false
+    excludeDevDependencies: true
