@@ -1,0 +1,23 @@
+candidateImport:
+    name: ${self:service}-candidate-import
+    handler: src/presentation/handlers/candidate-handler.candidateImport
+    environment:
+        ENV: ${self:custom.ENV}
+        FUNCTION_URL: ${self:custom.FUNCTION_URL}
+        MONGO: ${self:custom.MONGO}
+    events:
+        - httpApi:
+              path: /candidate/import
+              method: POST
+
+candidateGetAll:
+    name: ${self:service}-get-all
+    handler: src/presentation/handlers/candidate-handler.candidateGetAll
+    environment:
+        ENV: ${self:custom.ENV}
+        FUNCTION_URL: ${self:custom.FUNCTION_URL}
+        MONGO: ${self:custom.MONGO}
+    events:
+        - httpApi:
+              path: /candidate/get-all
+              method: POST

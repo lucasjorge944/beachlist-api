@@ -1,0 +1,11 @@
+createUser:
+    name: ${self:service}-create-user
+    handler: src/presentation/handlers/user-handler.createUserAll
+    environment:
+        ENV: ${self:custom.ENV}
+        FUNCTION_URL: ${self:custom.FUNCTION_URL}
+        MONGO: ${self:custom.MONGO}
+    events:
+        - httpApi:
+              path: /user/create
+              method: POST

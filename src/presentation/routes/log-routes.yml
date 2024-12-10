@@ -1,0 +1,11 @@
+  operationCreate:
+    name: ${self:service}-log-create
+    handler: src/presentation/handlers/log-handler.logCreate
+    environment:
+      ENV: ${self:custom.ENV}
+      FUNCTION_URL: ${self:custom.FUNCTION_URL}
+      MONGO: ${self:custom.MONGO}
+    events:
+      - httpApi:
+          path: /log/create
+          method: POST
