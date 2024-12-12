@@ -1,4 +1,4 @@
-createUser:
+createCustomerUser:
     name: ${self:service}-create-customer-user
     handler: src/presentation/handlers/user-handler.createCustomerUser
     environment:

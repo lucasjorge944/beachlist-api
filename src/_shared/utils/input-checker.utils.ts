@@ -35,6 +35,13 @@ export class InputChecker {
         });
     }
 
+    public isDate(fields: string[]) {
+        fields.forEach((field) => {
+            if (!Date.parse(field))
+                throw new InvalidProps(`${field} não é uma data válida!`);
+        });
+    }
+
     public isArrayofType?(fields: string[], type: string) {
         fields.forEach((field) => {
             if (
@@ -88,6 +95,7 @@ export class InputChecker {
         }
         return true;
     }
+
     public isObjectWithValues(
         input: any = {},
         fields: string[],

@@ -1,0 +1,11 @@
+createPlace:
+    name: ${self:service}-create-place
+    handler: src/presentation/handlers/place-handler.createPlace
+    environment:
+        ENV: ${self:custom.ENV}
+        FUNCTION_URL: ${self:custom.FUNCTION_URL}
+        MONGO: ${self:custom.MONGO}
+    events:
+        - httpApi:
+              path: /place/create
+              method: POST
