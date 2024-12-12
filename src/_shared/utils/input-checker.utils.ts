@@ -37,7 +37,7 @@ export class InputChecker {
 
     public isDate(fields: string[]) {
         fields.forEach((field) => {
-            if (!Date.parse(field))
+            if (!Date.parse(_.get(this.input, field)))
                 throw new InvalidProps(`${field} não é uma data válida!`);
         });
     }
@@ -90,7 +90,7 @@ export class InputChecker {
     }
 
     public isArrayOfObject(field, options): boolean {
-        for (let objectData of this.input[field]) {
+        for (let objectData of _.get(this.input, `${field}`)) {
             return this.isObjectWithValues(objectData, options);
         }
         return true;

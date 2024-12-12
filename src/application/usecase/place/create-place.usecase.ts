@@ -17,19 +17,15 @@ export class CreatePlaceUseCase implements Usecase {
         checker.isString([
             "place.name",
             "place.address.street",
-            "place.address.number",
             "place.address.city",
             "place.address.state",
             "place.address.zipCode",
             "place.description",
-            "place.images",
             "place.logo",
             "place.plan"
         ]);
-        checker.isArrayOfObject("place.services", {
-            type: "string",
-            label: "string"
-        });
+        checker.isNumber(["place.address.number"]);
+        checker.isArrayWithValues("place.images", ["image1.jpg", "image2.jpg"]);
         checker.isDate(["place.opened.from", "place.opened.to"]);
     }
 }

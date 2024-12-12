@@ -38,7 +38,7 @@ export type PlaceType = {
 
 type AddressType = {
     street: string;
-    number: string;
+    number: number;
     city: string;
     state: string;
     zipCode: string;
