@@ -24,8 +24,8 @@ functions:
 
 custom:
     ENV: ${env:FUNC_PREFIX, 'sandbox'}
-    FUNCTION_URL: ${env:FUNCTION_URL, 'https://y0i5464b79.execute-api.us-east-1.amazonaws.com'}
-    API_GATEWAY_ID: ${env:API_GATEWAY_ID, 'y0i5464b79'}
+    FUNCTION_URL: ${env:FUNCTION_URL, 'https://i4tnu24t91.execute-api.us-east-1.amazonaws.com'}
+    API_GATEWAY_ID: ${env:API_GATEWAY_ID, 'i4tnu24t91'}
     MONGO: ${env:MONGO_URI, 'mongodb+srv://myapi:F9r41705@beachlist-cluster.lxv3e.mongodb.net/'}
     serverless-offline:
         httpPort: 8085
