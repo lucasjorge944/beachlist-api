@@ -1,4 +1,4 @@
-service: spce-connect
+service: beachlist-api
 frameworkVersion: "3"
 configValidationMode: error
 
@@ -19,6 +19,8 @@ provider:
 
 functions:
     - ${file(src/presentation/routes/user-routes.yml)}
+    - ${file(src/presentation/routes/place-routes.yml)}
+    - ${file(src/presentation/routes/plan-routes.yml)}
 
 custom:
     ENV: ${env:FUNC_PREFIX, 'sandbox'}

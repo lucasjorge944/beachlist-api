@@ -12,8 +12,8 @@ export class PlaceMongoRepository implements IPlaceRepository {
     public async getAll(): Promise<{ total: number; places: Place[] }> {
         const data = await this.collection.find({}).toArray();
         if (!data?.length) return { total: 0, places: [] };
-        const places = data.map((user: PlaceType) =>
-            Place.restore(user, user._id)
+        const places = data.map((plan: PlaceType) =>
+            Place.restore(plan, plan._id)
         );
         return { total: places?.length, places };
     }

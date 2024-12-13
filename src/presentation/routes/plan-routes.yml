@@ -1,0 +1,23 @@
+createPlan:
+    name: ${self:service}-create-plan
+    handler: src/presentation/handlers/plan-handler.createPlan
+    environment:
+        ENV: ${self:custom.ENV}
+        FUNCTION_URL: ${self:custom.FUNCTION_URL}
+        MONGO: ${self:custom.MONGO}
+    events:
+        - httpApi:
+              path: /plan/create
+              method: POST
+
+getPlanByName:
+    name: ${self:service}-get-plan-by-name
+    handler: src/presentation/handlers/plan-handler.getPlanByName
+    environment:
+        ENV: ${self:custom.ENV}
+        FUNCTION_URL: ${self:custom.FUNCTION_URL}
+        MONGO: ${self:custom.MONGO}
+    events:
+        - httpApi:
+              path: /plan/get-by-name
+              method: POST
