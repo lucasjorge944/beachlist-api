@@ -74,7 +74,6 @@ Which should result in response similar to the following:
 }
 ```
 
-
 Alternatively, it is also possible to emulate API Gateway and Lambda locally by using `serverless-offline` plugin. In order to do that, execute the following command:
 
 ```bash
@@ -88,5 +87,3 @@ After installation, you can start local emulation with:
 ```
 serverless offline
 ```
-
-To learn more about the capabilities of `serverless-offline`, please refer to its [GitHub repository](https://github.com/dherault/serverless-offline).
