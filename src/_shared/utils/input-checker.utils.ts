@@ -35,8 +35,6 @@ export class InputChecker {
         });
     }
 
-<<<<<<< HEAD
-=======
     public isDate(fields: string[]) {
         fields.forEach((field) => {
             if (!Date.parse(_.get(this.input, field)))
@@ -44,7 +42,6 @@ export class InputChecker {
         });
     }
 
->>>>>>> master
     public isArrayofType?(fields: string[], type: string) {
         fields.forEach((field) => {
             if (
@@ -93,19 +90,12 @@ export class InputChecker {
     }
 
     public isArrayOfObject(field, options): boolean {
-<<<<<<< HEAD
-        for (let objectData of this.input[field]) {
-=======
         for (let objectData of _.get(this.input, `${field}`)) {
->>>>>>> master
             return this.isObjectWithValues(objectData, options);
         }
         return true;
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> master
     public isObjectWithValues(
         input: any = {},
         fields: string[],
