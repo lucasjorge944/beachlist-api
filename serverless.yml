@@ -1,4 +1,4 @@
-service: spce-connect
+service: beachlist-api
 frameworkVersion: "3"
 configValidationMode: error
 
@@ -19,12 +19,14 @@ provider:
 
 functions:
     - ${file(src/presentation/routes/user-routes.yml)}
+    - ${file(src/presentation/routes/place-routes.yml)}
+    - ${file(src/presentation/routes/plan-routes.yml)}
 
 custom:
     ENV: ${env:FUNC_PREFIX, 'sandbox'}
     FUNCTION_URL: ${env:FUNCTION_URL, 'https://hrgnu9b81f.execute-api.us-east-2.amazonaws.com'}
     API_GATEWAY_ID: ${env:API_GATEWAY_ID, 'hrgnu9b81f'}
-    MONGO: ${env:MONGO_URI, 'mongodb+srv://adm:Z2J+(Qk<o8zKPhp@refugo.jtbym.mongodb.net/scpe-connect-sandbox?retryWrites=true&w=majority&appName=refugo'}
+    MONGO: ${env:MONGO_URI, 'mongodb+srv://myapi:F9r41705@beachlist-cluster.lxv3e.mongodb.net/'}
     serverless-offline:
         httpPort: 8085
         lambdaPort: 8086

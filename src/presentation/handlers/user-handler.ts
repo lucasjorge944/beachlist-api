@@ -1,19 +1,19 @@
 import { APIGatewayEvent, Context } from "aws-lambda";
 import { MongoDb } from "../../infra/mongodb/mongo-connection";
 import { BodyParser } from "../../_shared/handlers/body-parser.decorator";
-import { CreateUserController } from "../controllers/user";
+import { CreateCustomerUserController } from "../controllers/user";
 const mongoDbConnection = new MongoDb();
 
 class UserHandler {
     constructor() {}
 
     @BodyParser()
-    public async createUser(event: APIGatewayEvent, _ctx: Context) {
+    public async createCustomerUser(event: APIGatewayEvent, _ctx: Context) {
         const mongoDb = await mongoDbConnection.getDb(process.env.MONGO, {
             ssl: true,
             sslValidate: false
         });
-        const controller = new CreateUserController(mongoDb);
+        const controller = new CreateCustomerUserController(mongoDb);
         return await controller.execute(event.body as any);
     }
 }

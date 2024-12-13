@@ -18,9 +18,9 @@ export class UserMongoRepository implements IUserRepository {
         return { total: users?.length, users };
     }
 
-    public async create(user: UserType): Promise<{ _id: string }> {
-        const response = this.collection.insert(user);
-        return response;
+    public async createCustomer(user: UserType): Promise<{ _id: string }> {
+        const response = await this.collection.insertOne(user);
+        return { _id: response.insertedId.toString() };
     }
 
     public async createMany(users: UserType[]): Promise<{ _id: string }[]> {

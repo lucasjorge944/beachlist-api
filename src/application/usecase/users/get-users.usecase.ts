@@ -1,5 +1,4 @@
 import { InputChecker } from "../../../_shared/utils/input-checker.utils";
-import { CandidateType } from "../../../domain/entity/candidate";
 import { IUserRepository } from "../../../domain/repository";
 import Usecase from "../usecase.interface";
 
@@ -19,4 +18,4 @@ export class GetUserssUseCase implements Usecase {
 
 type Input = {};
 
-type Output = { list: CandidateType[]; total: number };
+type Output = { list: any[]; total: number };
