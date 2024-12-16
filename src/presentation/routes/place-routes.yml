@@ -1,5 +1,5 @@
 createPlace:
-    name: ${self:service}-create-place
+    name: ${env:FUNC_PREFIX, 'sandbox'}-${self:service}-create-place
     handler: src/presentation/handlers/place-handler.createPlace
     environment:
         ENV: ${self:custom.ENV}

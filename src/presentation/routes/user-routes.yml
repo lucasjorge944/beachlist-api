@@ -1,5 +1,5 @@
 createCustomerUser:
-    name: ${self:service}-create-customer-user
+    name: ${env:FUNC_PREFIX, 'sandbox'}-${self:service}-create-customer-user
     handler: src/presentation/handlers/user-handler.createCustomerUser
     environment:
         ENV: ${self:custom.ENV}

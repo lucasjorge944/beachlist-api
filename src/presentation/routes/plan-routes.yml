@@ -1,5 +1,5 @@
 createPlan:
-    name: ${self:service}-create-plan
+    name: ${env:FUNC_PREFIX, 'sandbox'}-${self:service}-create-plan
     handler: src/presentation/handlers/plan-handler.createPlan
     environment:
         ENV: ${self:custom.ENV}
