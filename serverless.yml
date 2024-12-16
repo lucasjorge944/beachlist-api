@@ -21,6 +21,7 @@ functions:
     - ${file(src/presentation/routes/user-routes.yml)}
     - ${file(src/presentation/routes/place-routes.yml)}
     - ${file(src/presentation/routes/plan-routes.yml)}
+    - ${file(src/presentation/routes/auth-routes.yml)}
 
 custom:
     ENV: ${env:FUNC_PREFIX, 'sandbox'}

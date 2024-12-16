@@ -8,6 +8,11 @@ export class UserMongoRepository implements IUserRepository {
     constructor(readonly mongoDb: Db) {
         this.collection = this.mongoDb.collection("users");
     }
+    public async getByEmail(email: string): Promise<User> {
+        const user = await this.collection.findOne({ email });
+        if (!user) throw new Error("User not found");
+        return User.restore(user, user._id);
+    }
 
     public async getAll(): Promise<{ total: number; users: User[] }> {
         const data = await this.collection.find({}).toArray();

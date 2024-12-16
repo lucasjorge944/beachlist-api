@@ -9,6 +9,13 @@ class User extends Entity<UserType> {
         const entity = new User(props, _id);
         return entity;
     }
+
+    public get publicProps(): UserType {
+        return {
+            ...this.props,
+            password: undefined
+        };
+    }
 }
 
 export type UserType = {

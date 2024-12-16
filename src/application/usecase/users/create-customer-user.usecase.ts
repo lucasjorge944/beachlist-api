@@ -1,3 +1,4 @@
+import bcrypt from "bcryptjs";
 import { InputChecker } from "../../../_shared/utils/input-checker.utils";
 import { UserType } from "../../../domain/entity";
 import { IUserRepository } from "../../../domain/repository";
@@ -9,6 +10,7 @@ export class CreateCustomerUserUseCase implements Usecase {
     public async execute(input: Input): Promise<Output> {
         this.validateInput(input);
         input.user.role = ["customer"];
+        input.user.password = bcrypt.hashSync(input.user.password, 10);
         const response = await this.userRepository.createCustomer(input.user);
         return response;
     }
