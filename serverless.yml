@@ -24,9 +24,9 @@ functions:
 
 custom:
     ENV: ${env:FUNC_PREFIX, 'sandbox'}
-    FUNCTION_URL: ${env:FUNCTION_URL, 'https://e79lapd7qc.execute-api.us-east-1.amazonaws.com'}
+    FUNCTION_URL: ${env:FUNCTION_URL, 'https://e79lapd7qc.execute-api.us-east-1.amazonaws.com/sandbox'}
     API_GATEWAY_ID: ${env:API_GATEWAY_ID, 'e79lapd7qc'}
-    MONGO: ${env:MONGO_URI, 'mongodb+srv://myapi:F9r41705@beachlist-cluster.lxv3e.mongodb.net/'}
+    MONGO: ${env:MONGO_URI, 'mongodb+srv://myapi:F9r41705@beachlist-cluster.lxv3e.mongodb.net/beachlist-sandbox?retryWrites=true&w=majority&appName=beachlist'}
     serverless-offline:
         httpPort: 8085
         lambdaPort: 8086

@@ -11,7 +11,7 @@ createPlan:
               method: POST
 
 getPlanByName:
-    name: ${self:service}-get-plan-by-name
+    name: ${env:FUNC_PREFIX, 'sandbox'}-${self:service}-get-plan-by-name
     handler: src/presentation/handlers/plan-handler.getPlanByName
     environment:
         ENV: ${self:custom.ENV}
